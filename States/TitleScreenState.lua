@@ -11,8 +11,8 @@
 TitleScreenState = Class{__includes = BaseState}
 
 function TitleScreenState:update(dt)
-    if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
-        gStateMachine:change('play')
+    if love.keyboard.wasPressed('space') or love.keyboard.wasPressed('return') then
+        gStateMachine:change('countdown')
     end
 end
 
@@ -22,5 +22,5 @@ function TitleScreenState:render()
 
     love.graphics.setFont(mediumFont)
     love.graphics.printf('By Dark Samurai', 0, 100, VIRTUAL_WIDTH, 'center')
-    love.graphics.printf('Press Enter', 0, 120, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('Press Space', 0, 120, VIRTUAL_WIDTH, 'center')
 end

@@ -48,6 +48,19 @@ function love.load()
     love.graphics.setFont(flappyFont)
 
 
+    sounds = {
+        ['music'] = love.audio.newSource('media/marios_way.mp3', 'static'),
+        ['jump'] = love.audio.newSource('media/jump.wav', 'static'),
+        ['score'] = love.audio.newSource('media/score.wav', 'static'),
+        ['explosion'] = love.audio.newSource('media/hit.wav', 'static'),
+        ['hurt'] = love.audio.newSource('media/hurt.wav', 'static')
+
+    }
+
+    sounds['music']:setLooping(true)
+    sounds['music']:play()
+
+
     -- initialize our virtual resolution
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
         vsync = true,
@@ -101,9 +114,7 @@ function love.draw()
     
     -- draw the background starting at top left (0, 0)
     love.graphics.draw(background, -backgroundScroll, 0)
-    
     gStateMachine:render()
-
     -- draw the ground on top of the background, toward the bottom of the screen
     love.graphics.draw(ground, -groundScroll, VIRTUAL_HEIGHT - 16)
 
