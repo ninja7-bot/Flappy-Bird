@@ -1,7 +1,7 @@
 Pipe = Class{}
 
 -- since we only want the image loaded once, not per instantation, define it externally
-local PIPE_IMAGE = love.graphics.newImage('pipe.png')
+local PIPE_IMG = love.graphics.newImage('media/pipe.png')
 
 -- speed at which the pipe should scroll right to left
 PIPE_SPEED = 60
@@ -14,14 +14,14 @@ function Pipe:init(orientation, y)
     self.x = VIRTUAL_WIDTH
     self.y = y
 
-    self.width = PIPE_IMAGE:getWidth()
+    self.width = PIPE_WIDTH
     self.height = PIPE_HEIGHT
 
     self.orientation = orientation
 end 
 
 function Pipe:update(dt)
-    -- self.x = self.x + PIPE_SCROLL * dt
+
 end    
 
 function Pipe:render()
